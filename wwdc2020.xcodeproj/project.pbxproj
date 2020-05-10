@@ -7,8 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CDCA34A9246784F900BB9CA0 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = CDCA34A8246784F900BB9CA0 /* art.scnassets */; };
+		CDCA34AC2467925000BB9CA0 /* MotionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA34AB2467925000BB9CA0 /* MotionHelper.swift */; };
+		CDCA34AE246793FA00BB9CA0 /* VectorOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA34AD246793FA00BB9CA0 /* VectorOperations.swift */; };
+		CDCA34B724679C8700BB9CA0 /* 2. Conflito.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CDCA34B024679C8600BB9CA0 /* 2. Conflito.mp3 */; };
+		CDCA34B824679C8700BB9CA0 /* 4-Perdido.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CDCA34B124679C8600BB9CA0 /* 4-Perdido.mp3 */; };
+		CDCA34B924679C8700BB9CA0 /* 5-Perdão.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CDCA34B224679C8600BB9CA0 /* 5-Perdão.mp3 */; };
+		CDCA34BA24679C8700BB9CA0 /* 7-Fim.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CDCA34B324679C8600BB9CA0 /* 7-Fim.mp3 */; };
+		CDCA34BB24679C8700BB9CA0 /* 6-Novo Começo(epílogo).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CDCA34B424679C8700BB9CA0 /* 6-Novo Começo(epílogo).mp3 */; };
+		CDCA34BC24679C8700BB9CA0 /* Tutorial_mixagem.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CDCA34B524679C8700BB9CA0 /* Tutorial_mixagem.mp3 */; };
+		CDCA34BD24679C8700BB9CA0 /* 3-Deserto.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CDCA34B624679C8700BB9CA0 /* 3-Deserto.mp3 */; };
+		CDCA34C024679CBD00BB9CA0 /* Casa_mixagem.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CDCA34BE24679CBC00BB9CA0 /* Casa_mixagem.mp3 */; };
+		CDCA34C124679CBD00BB9CA0 /* Corrida_mixagem.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CDCA34BF24679CBD00BB9CA0 /* Corrida_mixagem.mp3 */; };
 		CDD4269424644B0E00E7A79A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD4269324644B0E00E7A79A /* AppDelegate.swift */; };
-		CDD4269624644B0E00E7A79A /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = CDD4269524644B0E00E7A79A /* art.scnassets */; };
 		CDD4269824644B0E00E7A79A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD4269724644B0E00E7A79A /* GameViewController.swift */; };
 		CDD4269B24644B0E00E7A79A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDD4269924644B0E00E7A79A /* Main.storyboard */; };
 		CDD4269D24644B1400E7A79A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDD4269C24644B1400E7A79A /* Assets.xcassets */; };
@@ -35,9 +46,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CDCA34A8246784F900BB9CA0 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		CDCA34AB2467925000BB9CA0 /* MotionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionHelper.swift; sourceTree = "<group>"; };
+		CDCA34AD246793FA00BB9CA0 /* VectorOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorOperations.swift; sourceTree = "<group>"; };
+		CDCA34B024679C8600BB9CA0 /* 2. Conflito.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "2. Conflito.mp3"; sourceTree = "<group>"; };
+		CDCA34B124679C8600BB9CA0 /* 4-Perdido.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "4-Perdido.mp3"; sourceTree = "<group>"; };
+		CDCA34B224679C8600BB9CA0 /* 5-Perdão.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "5-Perdão.mp3"; sourceTree = "<group>"; };
+		CDCA34B324679C8600BB9CA0 /* 7-Fim.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "7-Fim.mp3"; sourceTree = "<group>"; };
+		CDCA34B424679C8700BB9CA0 /* 6-Novo Começo(epílogo).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "6-Novo Começo(epílogo).mp3"; sourceTree = "<group>"; };
+		CDCA34B524679C8700BB9CA0 /* Tutorial_mixagem.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Tutorial_mixagem.mp3; sourceTree = "<group>"; };
+		CDCA34B624679C8700BB9CA0 /* 3-Deserto.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "3-Deserto.mp3"; sourceTree = "<group>"; };
+		CDCA34BE24679CBC00BB9CA0 /* Casa_mixagem.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Casa_mixagem.mp3; sourceTree = "<group>"; };
+		CDCA34BF24679CBD00BB9CA0 /* Corrida_mixagem.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Corrida_mixagem.mp3; sourceTree = "<group>"; };
 		CDD4269024644B0E00E7A79A /* wwdc2020.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wwdc2020.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDD4269324644B0E00E7A79A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CDD4269524644B0E00E7A79A /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		CDD4269724644B0E00E7A79A /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		CDD4269A24644B0E00E7A79A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CDD4269C24644B1400E7A79A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -76,6 +98,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CDCA34AA2467923A00BB9CA0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CDCA34AB2467925000BB9CA0 /* MotionHelper.swift */,
+				CDCA34AD246793FA00BB9CA0 /* VectorOperations.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CDCA34AF24679C0800BB9CA0 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				CDCA34BE24679CBC00BB9CA0 /* Casa_mixagem.mp3 */,
+				CDCA34BF24679CBD00BB9CA0 /* Corrida_mixagem.mp3 */,
+				CDCA34B024679C8600BB9CA0 /* 2. Conflito.mp3 */,
+				CDCA34B624679C8700BB9CA0 /* 3-Deserto.mp3 */,
+				CDCA34B124679C8600BB9CA0 /* 4-Perdido.mp3 */,
+				CDCA34B224679C8600BB9CA0 /* 5-Perdão.mp3 */,
+				CDCA34B424679C8700BB9CA0 /* 6-Novo Começo(epílogo).mp3 */,
+				CDCA34B324679C8600BB9CA0 /* 7-Fim.mp3 */,
+				CDCA34B524679C8700BB9CA0 /* Tutorial_mixagem.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		CDD4268724644B0D00E7A79A = {
 			isa = PBXGroup;
 			children = (
@@ -99,9 +146,11 @@
 		CDD4269224644B0E00E7A79A /* wwdc2020 */ = {
 			isa = PBXGroup;
 			children = (
+				CDCA34AF24679C0800BB9CA0 /* Sounds */,
+				CDCA34AA2467923A00BB9CA0 /* Resources */,
 				CDD4269324644B0E00E7A79A /* AppDelegate.swift */,
-				CDD4269524644B0E00E7A79A /* art.scnassets */,
 				CDD4269724644B0E00E7A79A /* GameViewController.swift */,
+				CDCA34A8246784F900BB9CA0 /* art.scnassets */,
 				CDD4269924644B0E00E7A79A /* Main.storyboard */,
 				CDD4269C24644B1400E7A79A /* Assets.xcassets */,
 				CDD4269E24644B1400E7A79A /* LaunchScreen.storyboard */,
@@ -232,10 +281,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDD4269624644B0E00E7A79A /* art.scnassets in Resources */,
 				CDD426A024644B1400E7A79A /* LaunchScreen.storyboard in Resources */,
+				CDCA34C024679CBD00BB9CA0 /* Casa_mixagem.mp3 in Resources */,
+				CDCA34BC24679C8700BB9CA0 /* Tutorial_mixagem.mp3 in Resources */,
+				CDCA34BB24679C8700BB9CA0 /* 6-Novo Começo(epílogo).mp3 in Resources */,
+				CDCA34BD24679C8700BB9CA0 /* 3-Deserto.mp3 in Resources */,
+				CDCA34A9246784F900BB9CA0 /* art.scnassets in Resources */,
+				CDCA34C124679CBD00BB9CA0 /* Corrida_mixagem.mp3 in Resources */,
 				CDD4269D24644B1400E7A79A /* Assets.xcassets in Resources */,
 				CDD4269B24644B0E00E7A79A /* Main.storyboard in Resources */,
+				CDCA34B924679C8700BB9CA0 /* 5-Perdão.mp3 in Resources */,
+				CDCA34B724679C8700BB9CA0 /* 2. Conflito.mp3 in Resources */,
+				CDCA34B824679C8700BB9CA0 /* 4-Perdido.mp3 in Resources */,
+				CDCA34BA24679C8700BB9CA0 /* 7-Fim.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,8 +318,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDCA34AE246793FA00BB9CA0 /* VectorOperations.swift in Sources */,
 				CDD4269824644B0E00E7A79A /* GameViewController.swift in Sources */,
 				CDD4269424644B0E00E7A79A /* AppDelegate.swift in Sources */,
+				CDCA34AC2467925000BB9CA0 /* MotionHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +497,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ADP5XER6GT;
 				INFOPLIST_FILE = wwdc2020/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -455,6 +516,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ADP5XER6GT;
 				INFOPLIST_FILE = wwdc2020/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
