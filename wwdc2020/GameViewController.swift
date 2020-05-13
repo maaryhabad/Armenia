@@ -8,6 +8,7 @@
 
 import UIKit
 import SceneKit
+import AVFoundation
 
 class GameViewController: UIViewController {
     
@@ -19,6 +20,8 @@ class GameViewController: UIViewController {
     var playerNode: SCNNode!
     var selfieStick: SCNNode!
     var camera: SCNNode!
+    
+    var runButton = UIButton()
     
     var motion = MotionHelper()
     var motionForce = SCNVector3(0, 0, 0)
@@ -32,7 +35,7 @@ class GameViewController: UIViewController {
     }
     
     func setupScene() {
-        sceneView = self.view as! SCNView
+        sceneView = self.view as? SCNView
         sceneView.delegate = self
         
         scene = SCNScene(named: "art.scnassets/MainScene.scn")
@@ -53,6 +56,14 @@ class GameViewController: UIViewController {
         playerNode.physicsBody?.contactTestBitMask = CategoryTree
         selfieStick = scene.rootNode.childNode(withName: "selfieStick", recursively: true)!
         camera = scene.rootNode.childNode(withName: "camera", recursively: true)!
+        
+        runButton = UIButton(type: UIButton.ButtonType.custom)
+        runButton.setImage(UIImage(named: "runButton.png"), for: .normal)
+        runButton.frame = CGRect(x: self.sceneView.frame.width - 200, y: self.sceneView.frame.height - 200, width: 100, height: 100)
+        sceneView.addSubview(runButton)
+        runButton.addTarget(self, action: #selector(runButtonClicked), for: UIControl.Event.touchDownRepeat)
+        
+        
     }
     
     func setupSounds() {
@@ -80,6 +91,12 @@ class GameViewController: UIViewController {
     func setupAnimations() {
         
     }
+    @objc func runButtonClicked() {
+        print("clicou no botão")
+        let velocityInLocalSpace = SCNVector3(0, 0, -0.15)
+        let velocityinWorldSpace = playerNode.presentation.convertVector(velocityInLocalSpace, to: nil)
+        playerNode.runAction(SCNAction.moveBy(x: 0, y: 0, z: -0.5, duration: 0.05))
+    }
     
     @objc func sceneViewTapped(recognizer: UITapGestureRecognizer) {
         let location = recognizer.location(in: sceneView)
@@ -88,14 +105,17 @@ class GameViewController: UIViewController {
         
         if hitResults.count > 0 {
             let result = hitResults.first
+            //FIX ME: pegar o clique na subview e andar pra sempre
             
             if let node = result?.node {
                 if node.name == "jovem" {
                     let runSound = sounds["runSound"]!
-                    playerNode.runAction(SCNAction.playAudio(runSound, waitForCompletion: false)) //FIX ME: quando termina esse som, começa a música.
-//                    playerNode.physicsBody?.applyForce(SCNVector3(x: 0, y: 2, z: -2), asImpulse: true)
+                    let music = sounds["tutorialMusic"]!
+                    playerNode.runAction(SCNAction.playAudio(runSound, waitForCompletion: true)) {
+                        self.camera.runAction(SCNAction.playAudio(music, waitForCompletion: false))
+                    }
                 } else {
-                    print("não achou o node.name: ", node.name)
+                    print("não achou o node.name: ", node.name!)
                 }
             }
         }
@@ -117,7 +137,7 @@ extension GameViewController : SCNSceneRendererDelegate {
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         let player = playerNode.presentation
         let playerPosition = player.position
-        print("playerPosition")
+//        print("playerPosition")
         
         let targetPosition = SCNVector3(x: playerPosition.x, y: playerPosition.y + 5, z: playerPosition.z + 5)
         var cameraPosition = selfieStick.position
@@ -133,11 +153,11 @@ extension GameViewController : SCNSceneRendererDelegate {
         
         
         motion.getAccelerometerData { (x, y, z) in
-            self.motionForce = SCNVector3(x: x * 0.05, y: 0, z: (y+0.08) * -0.05)
+            self.motionForce = SCNVector3(x: x * 0.5, y: 0, z: (y+0.08) * -0.5) //FIX ME: Alterar a velocidade do personagem
             
         }
-        playerNode.runAction(SCNAction.move(by: motionForce, duration: 0.1)) //FIX ME: Colocar um botão pra mexer o personagem, tentar com touch3d?
-        print("self motionForce: ", self.motionForce)
+//        playerNode.runAction(SCNAction.move(by: motionForce, duration: 0.01)) //FIX ME: Colocar um botão pra mexer o personagem, tentar com touch3d?
+//        print("self motionForce: ", self.motionForce)
     }
 }
 
@@ -152,8 +172,7 @@ extension GameViewController : SCNPhysicsContactDelegate {
         }
         
         if contactNode.physicsBody?.categoryBitMask == CategoryTree {
-            let music = sounds["tutorialMusic"]!
-            camera.runAction(SCNAction.playAudio(music, waitForCompletion: false))
+        
             contactNode.isHidden = true
             
             let waitAction = SCNAction.wait(duration: 15)
@@ -167,3 +186,5 @@ extension GameViewController : SCNPhysicsContactDelegate {
         }
     }
 }
+
+
