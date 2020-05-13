@@ -14,12 +14,16 @@ class GameViewController: UIViewController {
     
     let CategoryTree = 2
     
+    let waterCount = 100
+    let shapeLayer = CAShapeLayer()
+    
     var sceneView: SCNView!
     var scene: SCNScene!
     
     var playerNode: SCNNode!
     var selfieStick: SCNNode!
     var camera: SCNNode!
+    var youngsHouse: SCNNode!
     
     var runButton = UIButton()
     
@@ -27,11 +31,14 @@ class GameViewController: UIViewController {
     var motionForce = SCNVector3(0, 0, 0)
     
     var sounds: [String: SCNAudioSource] = [:]
+    
 
     override func viewDidLoad() {
         setupScene()
         setupNodes()
         setupSounds()
+        setupWaterCount()
+        AnimateWaterCounter()
     }
     
     func setupScene() {
@@ -56,6 +63,7 @@ class GameViewController: UIViewController {
         playerNode.physicsBody?.contactTestBitMask = CategoryTree
         selfieStick = scene.rootNode.childNode(withName: "selfieStick", recursively: true)!
         camera = scene.rootNode.childNode(withName: "camera", recursively: true)!
+        youngsHouse = scene.rootNode.childNode(withName: "youngsHouse", recursively: true)!
         
         runButton = UIButton(type: UIButton.ButtonType.custom)
         runButton.setImage(UIImage(named: "runButton.png"), for: .normal)
@@ -75,17 +83,62 @@ class GameViewController: UIViewController {
         tutorialMusic.load()
         runSound.load()
         
-        houseSounds.volume = 0.5
+        houseSounds.volume = 0.3
         tutorialMusic.volume = 0.2
-        runSound.volume = 0.5
+        runSound.volume = 0.8
         
         sounds["house"] = houseSounds
         sounds["tutorialMusic"] = tutorialMusic
         sounds["runSound"] = runSound
         
         let soundPlayer = SCNAudioPlayer(source: houseSounds)
-        camera.addAudioPlayer(soundPlayer)
+        youngsHouse.addAudioPlayer(soundPlayer)
         
+    }
+    
+    func setupWaterCount() {
+        
+        let trackLayer = CAShapeLayer()
+
+        shapeLayer.frame = CGRect(x: 140, y: self.sceneView.frame.height - 180, width: 50, height: 50)
+        trackLayer.frame = CGRect(x: 140, y: self.sceneView.frame.height - 180, width: 50, height: 50)
+        let centerOfLayer = CGPoint(x: shapeLayer.frame.size.width/2, y: shapeLayer.frame.size.height/2)
+        let circularPath = UIBezierPath(arcCenter: centerOfLayer, radius: 45, startAngle: -CGFloat.pi/2, endAngle: 2 * CGFloat.pi, clockwise: true)
+        
+        
+       //TRACK LAYER
+        trackLayer.path = circularPath.cgPath
+        trackLayer.fillColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+       
+        trackLayer.strokeColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 0.5)
+        trackLayer.lineWidth = 10
+       
+        trackLayer.lineCap = .round
+        sceneView.layer.addSublayer(trackLayer)
+        
+        //SHAPE LAYER
+        shapeLayer.path = circularPath.cgPath
+        shapeLayer.fillColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+        
+        shapeLayer.strokeColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+        shapeLayer.lineWidth = 10
+        
+        shapeLayer.lineCap = .round
+        
+        sceneView.layer.addSublayer(shapeLayer)
+        
+        
+    }
+    
+    func AnimateWaterCounter() {
+        let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        basicAnimation.toValue = 0
+        basicAnimation.duration = 10
+        
+        basicAnimation.fillMode = CAMediaTimingFillMode.forwards
+        basicAnimation.isRemovedOnCompletion = false
+        
+        shapeLayer.add(basicAnimation, forKey: "anim")
     }
     
     func setupAnimations() {
